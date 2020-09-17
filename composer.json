@@ -1,0 +1,17 @@
+{
+    "name": "aberkanidev/laravel-coupons",
+    "description": "Coupon generator for laravel",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mohamed Aberkani",
+            "email": "aberkanidev@gmail.com",
+            "homepage": "https://aberkanidev.com",
+            "role": "Web Developer"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "orchestra/testbench": "^6.0"
+    }
+}
