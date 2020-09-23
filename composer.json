@@ -1,6 +1,11 @@
 {
     "name": "aberkanidev/laravel-coupons",
     "description": "Coupon generator for laravel",
+    "keywords": [
+        "aberkanidev",
+        "laravel-coupons"
+    ],
+    "homepage": "https://github.com/aberkanimed/laravel-coupons",
     "license": "MIT",
     "authors": [
         {
@@ -10,18 +15,30 @@
             "role": "Web Developer"
         }
     ],
-    "require": {},
+    "require": {
+        "php": "^7.3"
+    },
     "require-dev": {
         "orchestra/testbench": "^6.0"
     },
     "autoload": {
         "psr-4": {
-            "aberkanidev\\Coupons\\": "src/"
+            "aberkanidev\\Coupons\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "aberkanidev\\Coupons\\Tests": "tests/"
+            "aberkanidev\\Coupons\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "aberkanidev\\Coupons\\CouponsServiceProvider"
+            ],
+            "aliases": {
+                "Coupons": "aberkanidev\\Coupons\\Facades\\Coupons"
+            }
         }
     }
 }
