@@ -8,17 +8,17 @@ return [
     'table' => 'coupons',
 
     /*
-     * Database pivot table name for vouchers and users relation
+     * Database table name for voucherable models
      */
     'voucherable_table' => 'voucherables',
 
     /*
-     * List of characters that will be used for voucher code generation.
+     * List of characters that will be used for coupon code generation.
      */
     'characters' => '23456789ABCDEFGHJKLMNPQRSTUVWXYZ',
 
     /*
-     * Voucher code prefix.
+     * Coupon code prefix.
      *
      * Example: foo
      * Generated Code: foo-AGXF-1NH8
@@ -26,7 +26,7 @@ return [
     'prefix' => null,
 
     /*
-     * Voucher code suffix.
+     * Coupon code suffix.
      *
      * Example: foo
      * Generated Code: AGXF-1NH8-foo

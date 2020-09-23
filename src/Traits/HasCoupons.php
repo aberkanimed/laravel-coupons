@@ -20,6 +20,7 @@ trait HasCoupons
     /**
      * @param int $amount
      * @param array $data
+     * @param boolean $is_disposable
      * @param null $expires_at
      * @return Coupon[]
      */
@@ -30,6 +31,7 @@ trait HasCoupons
 
     /**
      * @param array $data
+     * @param boolean $is_disposable
      * @param null $expires_at
      * @return Coupon
      */
@@ -38,6 +40,13 @@ trait HasCoupons
         return $this->createCoupons(1, $data, $is_disposable, $expires_at)[0];
     }
 
+    /**
+     *
+     * @param array $data
+     * @param boolean $is_disposable
+     * @param null $expires_at
+     * @return void
+     */
     public function createDisposableCoupon(array $data = [], bool $is_disposable = true, $expires_at = null)
     {
         return $this->createCoupons(1, $data, $is_disposable, $expires_at)[0];

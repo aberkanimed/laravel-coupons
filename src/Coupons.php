@@ -39,6 +39,7 @@ class Coupons
      * @param Model $model
      * @param int $amount
      * @param array $data
+     * @param boolean $is_disposable
      * @param null $expires_at
      * @return array
      */
