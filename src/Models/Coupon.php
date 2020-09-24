@@ -4,6 +4,7 @@ namespace aberkanidev\Coupons\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use aberkanidev\Coupons\Exceptions\VoucherableModelNotFound;
 
 class Coupon extends Model
 {
@@ -59,14 +60,15 @@ class Coupon extends Model
      * @param $model
      * @return boolean
      */
-    public function isRedeemed($model)
+    public function isRedeemed($model = null)
     {
-        $couponRedeemed = Voucherable::where('coupon_id', $this->id)->exists();
+        // $couponRedeemed = Voucherable::where('coupon_id', $this->id)->exists();
+        return Voucherable::where('coupon_id', $this->id)->exists();
 
-        if ($couponRedeemed && !$this->is_disposable) {
-            return $this->isRedeemedBy($model);
-        }
-        return $couponRedeemed;
+        // if ($model != null && $couponRedeemed && !$this->is_disposable) {
+        //     return $this->isRedeemedBy($model);
+        // }
+        // return $couponRedeemed;
     }
 
     /**
@@ -76,6 +78,10 @@ class Coupon extends Model
      */
     public function isRedeemedBy($model)
     {
+        if($model == null) {
+            throw VoucherableModelNotFound::create();
+        }
+
         return Voucherable::where([
             ['coupon_id', $this->id],
             ['model_id', $model->id],

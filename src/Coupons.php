@@ -2,11 +2,14 @@
 
 namespace aberkanidev\Coupons;
 
+use Throwable;
 use aberkanidev\Coupons\Models\Coupon;
 use aberkanidev\Coupons\CouponGenerator;
 use Illuminate\Database\Eloquent\Model;
 use aberkanidev\Coupons\Exceptions\CouponExpired;
 use aberkanidev\Coupons\Exceptions\CouponIsInvalid;
+use aberkanidev\Coupons\Exceptions\CouponAlreadyRedeemed;
+use Exception;
 
 class Coupons
 {
@@ -67,7 +70,7 @@ class Coupons
      * @throws CouponExpired
      * @return Coupon
      */
-    public function check(string $code)
+    public function check(string $code, $model = null)
     {
         $coupon = Coupon::whereCode($code)->first();
 
@@ -76,6 +79,18 @@ class Coupons
         }
         if ($coupon->isExpired()) {
             throw CouponExpired::create($coupon);
+        }
+
+        if($coupon->is_disposable) {
+            if ($coupon->isRedeemed()) {
+                throw CouponAlreadyRedeemed::create($coupon);
+            }
+        } else {
+            // if($model != null) {
+                if ($coupon->isRedeemedBy($model)) {
+                    throw CouponAlreadyRedeemed::create($coupon);
+                }
+            // }
         }
 
         return $coupon;

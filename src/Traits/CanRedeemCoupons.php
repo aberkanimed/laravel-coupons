@@ -20,11 +20,7 @@ trait CanRedeemCoupons
      */
     public function redeemCode(string $code)
     {
-        $coupon = Coupons::check($code);
-
-        if ($coupon->isRedeemed($this)) {
-            throw CouponAlreadyRedeemed::create($coupon);
-        }
+        $coupon = Coupons::check($code, $this);
 
         $this->createVoucherable($coupon);
 
