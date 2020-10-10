@@ -16,6 +16,10 @@ $customer->redeemCoupon($coupon);
 ```
 
 # Table of content
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
 # Installation
 
