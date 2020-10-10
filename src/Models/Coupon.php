@@ -60,15 +60,9 @@ class Coupon extends Model
      * @param $model
      * @return boolean
      */
-    public function isRedeemed($model = null)
+    public function isRedeemed()
     {
-        // $couponRedeemed = Voucherable::where('coupon_id', $this->id)->exists();
         return Voucherable::where('coupon_id', $this->id)->exists();
-
-        // if ($model != null && $couponRedeemed && !$this->is_disposable) {
-        //     return $this->isRedeemedBy($model);
-        // }
-        // return $couponRedeemed;
     }
 
     /**

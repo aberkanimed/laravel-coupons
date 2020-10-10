@@ -4,8 +4,8 @@ namespace aberkanidev\Coupons\Tests;
 
 use Illuminate\Foundation\Auth\User;
 use aberkanidev\Coupons\Facades\Coupons;
-use aberkanidev\Coupons\CouponsServiceProvider;
 use Illuminate\Database\Schema\Blueprint;
+use aberkanidev\Coupons\CouponsServiceProvider;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {

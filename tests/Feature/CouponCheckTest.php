@@ -2,7 +2,6 @@
 
 namespace aberkanidev\Coupons\Tests;
 
-use Event;
 use Coupons;
 use aberkanidev\Coupons\Tests\Models\Item;
 use aberkanidev\Coupons\Tests\Models\User;
