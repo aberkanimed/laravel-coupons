@@ -1,4 +1,5 @@
 # Laravel Coupons
+[![Latest Stable Version](https://poser.pugx.org/aberkanidev/laravel-coupons/v)](//packagist.org/packages/aberkanidev/laravel-coupons) [![Total Downloads](https://poser.pugx.org/aberkanidev/laravel-coupons/downloads)](//packagist.org/packages/aberkanidev/laravel-coupons) [![License](https://poser.pugx.org/aberkanidev/laravel-coupons/license)](//packagist.org/packages/aberkanidev/laravel-coupons)
 
 Laravel coupons is a package that allows you to add coupons system to your laravel app. The coupons can be associated with Eloquent models, and they can be redeemed by any Eloquent model you choose, not only User model.
 
